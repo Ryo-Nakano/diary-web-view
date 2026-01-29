@@ -1,18 +1,10 @@
-import { BoundSheetData } from 'base_classes/base_sheet_data';
-import { SSID, BOUND_SHEETS } from 'constants';
+import { DiaryDatabaseSheetData } from 'base_classes/base_sheet_data';
+import { DIARY_DATABASE_SHEET } from 'constants';
 
 /**
  * 日記シートへのデータアクセスを提供するクラス
  */
-export class Diary extends BoundSheetData {
-  /**
-   * スプレッドシートIDを返す
-   * @returns {string}
-   */
-  static get SSID() {
-    return SSID;
-  }
-
+export class Diary extends DiaryDatabaseSheetData {
   /**
    * 日記を保存する
    * @param {string} text - 日記の内容
@@ -31,7 +23,7 @@ export class Diary extends BoundSheetData {
    * @returns {Object} 日付をキーに、日記の配列を値とするオブジェクト
    */
   static getBetween(since, until) {
-    const sheet = this._getSheet(BOUND_SHEETS.DB);
+    const sheet = this._getSheet(DIARY_DATABASE_SHEET.DB);
     if (!sheet) return {};
 
     const data = sheet.getDataRange().getValues().slice(2);
@@ -63,7 +55,7 @@ export class Diary extends BoundSheetData {
    * @private
    */
   static _addRow(row) {
-    const sheet = this._getSheet(BOUND_SHEETS.DB);
+    const sheet = this._getSheet(DIARY_DATABASE_SHEET.DB);
     if (!sheet) return;
 
     const lastRow = sheet.getLastRow();

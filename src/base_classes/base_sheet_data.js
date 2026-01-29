@@ -71,13 +71,12 @@ class BaseSheetData {
 /**
  * `BaseSheetData` クラスを継承し、変換ツールのデータ操作を提供するクラス。
  */
-export class BoundSheetData extends BaseSheetData {
+export class DiaryDatabaseSheetData extends BaseSheetData {
   /**
-   * バインドされたスプレッドシートIDを返します。
+   * 日記DBのスプレッドシートIDを返す
    * @return {string} スプレッドシートID
    */
   static get SSID() {
-    this._SSID = this._SSID || SpreadsheetApp.getActiveSpreadsheet().getId();
-    return this._SSID;
+    return "14ATjWS2KksBKTqkuVE1RI8-vFKuV13sZ3Phr0_mPz4M";
   }
 }
