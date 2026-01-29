@@ -1,5 +1,5 @@
 import { DiaryDatabaseSheetData } from 'base_classes/base_sheet_data';
-import { DIARY_DATABASE_SHEETS } from 'constants';
+import { DIARY_DATABASE_SHEET } from 'constants';
 
 /**
  * 日記シートへのデータアクセスを提供するクラス
@@ -23,7 +23,7 @@ export class Diary extends DiaryDatabaseSheetData {
    * @returns {Object} 日付をキーに、日記の配列を値とするオブジェクト
    */
   static getBetween(since, until) {
-    const sheet = this._getSheet(DIARY_DATABASE_SHEETS.DB);
+    const sheet = this._getSheet(DIARY_DATABASE_SHEET.DB);
     if (!sheet) return {};
 
     const data = sheet.getDataRange().getValues().slice(2);
@@ -55,7 +55,7 @@ export class Diary extends DiaryDatabaseSheetData {
    * @private
    */
   static _addRow(row) {
-    const sheet = this._getSheet(DIARY_DATABASE_SHEETS.DB);
+    const sheet = this._getSheet(DIARY_DATABASE_SHEET.DB);
     if (!sheet) return;
 
     const lastRow = sheet.getLastRow();
